@@ -35,6 +35,7 @@
                 <li><a href="#about" class="nav-links">About Us</a></li>
                 <li><a href="#products" class="nav-links">Products</a></li>
                 <li><a href="#benefits" class="nav-links">Benefits</a></li>
+                <li><a href="#videos" class="nav-links">Videos</a></li>
                 <li><a href="#reviews" class="nav-links">Reviews</a></li>
                 <li><a href="#contact" class="nav-btn">Contact Us</a></li>
             </ul>
@@ -155,6 +156,47 @@
         </div>
     </section>
 
+    <!-- Videos Section -->
+    <section id="videos" class="videos">
+        <div class="section-container column">
+            <div class="section-header">
+                <h2>Our <span>Spice Journey</span> in Action</h2>
+                <div class="divider center"></div>
+                <p>Watch how our authentic Kolhapuri masala is made and used to create mouth-watering dishes.</p>
+            </div>
+            
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <!-- Native HTML5 Video Player for locally hosted videos -->
+                        <video width="100%" height="100%" controls poster="assets/video1-thumbnail.jpg">
+                            <source src="assets/your-video-1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>The Making of Authentic Kolhapuri Masala</h3>
+                        <p>A glimpse into our traditional sun-drying and hand-pounding process.</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <!-- Native HTML5 Video Player for locally hosted videos -->
+                        <video width="100%" height="100%" controls poster="assets/video2-thumbnail.jpg">
+                            <source src="assets/your-video-2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Recipe: Spicy Kolhapuri Misal</h3>
+                        <p>Learn how to make the perfect street-style misal using our masala at home.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Reviews Section -->
     <section id="reviews" class="reviews">
         <div class="section-container column">
@@ -164,35 +206,96 @@
                 <p>Don't just take our word for it. Hear from our spice lovers!</p>
             </div>
             
-            <div class="reviews-wrapper">
-                <div class="review-box">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <div class="reviews-slider-container">
+                <button class="slider-btn prev-btn" id="prevReview"><i class="fas fa-chevron-left"></i></button>
+                <div class="reviews-wrapper" id="reviewsWrapper">
+                    <div class="review-box">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Absolutely amazing! The exact traditional Kolhapuri flavor I have been searching for. Highly recommended for non-veg curries."</p>
+                        <div class="reviewer">
+                            <div class="avatar">P</div>
+                            <div>
+                                <h4>Poonam D.</h4>
+                                <span>Mumbai</span>
+                            </div>
+                        </div>
                     </div>
-                    <p class="review-text">"Absolutely amazing! The exact traditional Kolhapuri flavor I have been searching for. Highly recommended for non-veg curries."</p>
-                    <div class="reviewer">
-                        <div class="avatar">P</div>
-                        <div>
-                            <h4>Poonam D.</h4>
-                            <span>Mumbai</span>
+                    
+                    <div class="review-box">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="review-text">"I made misal using Nishad's masala, and everyone loved it. The color is beautiful and it has no artificial aftertaste."</p>
+                        <div class="reviewer">
+                            <div class="avatar">D</div>
+                            <div>
+                                <h4>Dheeren M.</h4>
+                                <span>Pune</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-box">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"The Kolhapuri masala is incredibly authentic and fresh. It reminds me of the spices we used back home!"</p>
+                        <div class="reviewer">
+                            <div class="avatar">J</div>
+                            <div>
+                                <h4>Jaywant J.</h4>
+                                <span>Kolhapur</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-box">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="review-text">"Fantastic blend of spices. Gives perfect color and heat to non-veg dishes without being overwhelmingly spicy."</p>
+                        <div class="reviewer">
+                            <div class="avatar">O</div>
+                            <div>
+                                <h4>Omkar K.</h4>
+                                <span>Solapur</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-box">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"This has become a staple in my kitchen. The aroma alone is enough to make anyone hungry. Highly recommend!"</p>
+                        <div class="reviewer">
+                            <div class="avatar">A</div>
+                            <div>
+                                <h4>Ayush M.</h4>
+                                <span>Mumbai</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-box">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Best Kolhapuri masala I've ever bought online. It has the perfect kick and zero artificial color."</p>
+                        <div class="reviewer">
+                            <div class="avatar">P</div>
+                            <div>
+                                <h4>Pushkar B.</h4>
+                                <span>Nashik</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="review-box">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="review-text">"I made misal using Nishad's masala, and everyone loved it. The color is beautiful and it has no artificial aftertaste."</p>
-                    <div class="reviewer">
-                        <div class="avatar">D</div>
-                        <div>
-                            <h4>Dheeren M.</h4>
-                            <span>Pune</span>
-                        </div>
-                    </div>
-                </div>
+                <button class="slider-btn next-btn" id="nextReview"><i class="fas fa-chevron-right"></i></button>
             </div>
+            <div class="slider-dots" id="sliderDots"></div>
         </div>
     </section>
 

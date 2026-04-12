@@ -594,14 +594,97 @@ ul {
 }
 
 /* =========================================
+   Videos Section
+   ========================================= */
+.videos {
+    background-color: var(--bg-light);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.video-card {
+    background: var(--bg-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #f0f0f0;
+    transition: var(--transition);
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-red);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: #000;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+    background-color: #000;
+}
+
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--bg-dark);
+}
+
+.video-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+/* =========================================
    Reviews Section
    ========================================= */
+.reviews-slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
 .reviews-wrapper {
     display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+    padding: 1rem 0;
+}
+
+.reviews-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .review-box {
@@ -609,11 +692,85 @@ ul {
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: var(--shadow-sm);
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
     position: relative;
     border: 1px solid #f0f0f0;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .review-box {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    .review-box {
+        flex: 0 0 calc(33.333% - 1.33rem);
+    }
+}
+
+.review-box:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    color: var(--primary-red);
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.slider-btn:hover {
+    background: var(--primary-red);
+    color: white;
+}
+
+.prev-btn {
+    left: -10px;
+}
+
+.next-btn {
+    right: -10px;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dot.active {
+    background: var(--primary-red);
+    width: 25px;
+    border-radius: 5px;
 }
 
 .stars {
@@ -626,6 +783,7 @@ ul {
     color: var(--text-muted);
     margin-bottom: 2rem;
     font-size: 1.1rem;
+    flex-grow: 1;
 }
 
 .reviewer {

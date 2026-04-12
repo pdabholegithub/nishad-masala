@@ -103,4 +103,115 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
         });
     }
+
+    // Testimonial Slider
+    const reviewsWrapper = document.getElementById('reviewsWrapper');
+    const prevBtn = document.getElementById('prevReview');
+    const nextBtn = document.getElementById('nextReview');
+    const dotsContainer = document.getElementById('sliderDots');
+
+    if (reviewsWrapper && prevBtn && nextBtn) {
+        let scrollAmount = 0;
+        let isHovered = false;
+        let autoSlideInterval;
+        
+        const updateScrollAmount = () => {
+             const reviewBox = reviewsWrapper.querySelector('.review-box');
+             if(reviewBox) {
+                scrollAmount = reviewBox.offsetWidth + 32; 
+             }
+        };
+
+        const generateDots = () => {
+            if(!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            const totalSlides = reviewsWrapper.querySelectorAll('.review-box').length;
+            
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    updateScrollAmount();
+                    reviewsWrapper.scrollTo({
+                        left: scrollAmount * i,
+                        behavior: 'smooth'
+                    });
+                    resetAutoSlide();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        };
+
+        generateDots();
+
+        reviewsWrapper.addEventListener('scroll', () => {
+            if(!dotsContainer) return;
+            updateScrollAmount();
+            if(scrollAmount === 0) return;
+            const index = Math.round(reviewsWrapper.scrollLeft / scrollAmount);
+            const dots = dotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        });
+
+        const nextSlide = () => {
+            updateScrollAmount();
+            if (reviewsWrapper.scrollLeft + reviewsWrapper.clientWidth >= reviewsWrapper.scrollWidth - 10) {
+                reviewsWrapper.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                reviewsWrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        };
+
+        const prevSlide = () => {
+            updateScrollAmount();
+            reviewsWrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        };
+
+        const startAutoSlide = () => {
+            if(!isHovered) {
+                autoSlideInterval = setInterval(nextSlide, 3500); // 3.5s for dynamic flow
+            }
+        };
+
+        const resetAutoSlide = () => {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        };
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
+        
+        // Pause auto slide on hover and touch
+        reviewsWrapper.addEventListener('mouseenter', () => {
+            isHovered = true;
+            clearInterval(autoSlideInterval);
+        });
+        reviewsWrapper.addEventListener('mouseleave', () => {
+            isHovered = false;
+            startAutoSlide();
+        });
+        
+        reviewsWrapper.addEventListener('touchstart', () => {
+            isHovered = true;
+            clearInterval(autoSlideInterval);
+        });
+        reviewsWrapper.addEventListener('touchend', () => {
+            isHovered = false;
+            startAutoSlide();
+        });
+        
+        window.addEventListener('resize', updateScrollAmount);
+        updateScrollAmount();
+        startAutoSlide();
+    }
 });
