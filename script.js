@@ -214,4 +214,63 @@ document.addEventListener('DOMContentLoaded', () => {
         updateScrollAmount();
         startAutoSlide();
     }
+    // Video Section Dynamic Loading
+    const videoGrid = document.getElementById('videoGrid');
+    
+    const defaultVideos = [
+        {
+            title: "Process: Authentic Masala Making",
+            description: "A glimpse into our traditional sun-drying and hand-pounding process.",
+            src: "assets/your-video-1.mp4",
+            poster: "assets/video1-thumbnail.jpg"
+        },
+        {
+            title: "Recipe: Traditional Spicy Misal",
+            description: "Learn how to make the perfect street-style misal using our masala at home.",
+            src: "assets/your-video-2.mp4",
+            poster: "assets/video2-thumbnail.jpg"
+        }
+    ];
+
+    const loadVideos = () => {
+        if (!videoGrid) return;
+
+        // Get videos from localStorage or use defaults
+        const storedVideos = localStorage.getItem('nishadVideos');
+        const videos = storedVideos ? JSON.parse(storedVideos) : defaultVideos;
+
+        videoGrid.innerHTML = '';
+
+        videos.forEach((video, index) => {
+            const videoCard = document.createElement('div');
+            videoCard.className = 'video-card';
+            videoCard.innerHTML = `
+                <div class="video-wrapper">
+                    <video width="100%" height="100%" controls poster="${video.poster}">
+                        <source src="${video.src}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h3>Video ${index + 1}: ${video.title}</h3>
+                    <p>${video.description}</p>
+                </div>
+            `;
+            videoGrid.appendChild(videoCard);
+        });
+    };
+
+    loadVideos();
+
+    // Check for Admin Query Param to show Admin Trigger
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('admin')) {
+        const adminProvision = document.getElementById('admin-provision');
+        if (adminProvision) {
+            adminProvision.style.display = 'block';
+            document.getElementById('addVideoBtn').addEventListener('click', () => {
+                window.location.href = 'admin.html';
+            });
+        }
+    }
 });

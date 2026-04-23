@@ -156,43 +156,21 @@
         </div>
     </section>
 
-    <!-- Videos Section -->
     <section id="videos" class="videos">
         <div class="section-container column">
             <div class="section-header">
-                <h2>Our <span>Spice Journey</span> in Action</h2>
+                <h2>Explore <span>Nishad's Kitchen</span></h2>
                 <div class="divider center"></div>
-                <p>Watch how our authentic Kolhapuri masala is made and used to create mouth-watering dishes.</p>
+                <p>From traditional spice making to delicious recipes, watch our latest video updates.</p>
             </div>
             
-            <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <!-- Native HTML5 Video Player for locally hosted videos -->
-                        <video width="100%" height="100%" controls poster="assets/video1-thumbnail.jpg">
-                            <source src="assets/your-video-1.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3>The Making of Authentic Kolhapuri Masala</h3>
-                        <p>A glimpse into our traditional sun-drying and hand-pounding process.</p>
-                    </div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <!-- Native HTML5 Video Player for locally hosted videos -->
-                        <video width="100%" height="100%" controls poster="assets/video2-thumbnail.jpg">
-                            <source src="assets/your-video-2.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3>Recipe: Spicy Kolhapuri Misal</h3>
-                        <p>Learn how to make the perfect street-style misal using our masala at home.</p>
-                    </div>
-                </div>
+            <div class="video-grid" id="videoGrid">
+                <!-- Videos will be loaded dynamically here -->
+            </div>
+
+            <!-- Admin Provision Trigger (Hidden by default, can be toggled) -->
+            <div id="admin-provision" style="display: none; margin-top: 3rem; text-align: center;">
+                <button id="addVideoBtn" class="btn btn-secondary"><i class="fas fa-plus"></i> Add New Video</button>
             </div>
         </div>
     </section>
@@ -356,6 +334,9 @@
                 <h3>Nishad <span>Enterprises</span></h3>
                 <p style="margin-bottom: 0.5rem; color: var(--accent-yellow); font-weight: 500;">Kolhapuri Zanzanit Masala</p>
                 <p>अस्सल कोल्हापूरी झणझणीत मसाला! Handcrafted with passion, traditional to the core.</p>
+                <div style="margin-top: 1rem;">
+                    <a href="admin.html" style="font-size: 0.8rem; opacity: 0.6; color: var(--text-light);"><i class="fas fa-cog"></i> Admin Control</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">

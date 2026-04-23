@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Control - Nishad Enterprises</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .admin-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+        .admin-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .video-form {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            font-weight: 600;
+            color: var(--bg-dark);
+        }
+        .form-group input, .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: var(--font-body);
+        }
+        .video-list-admin {
+            display: grid;
+            gap: 1rem;
+        }
+        .video-item-admin {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+        .video-item-info h4 {
+            margin-bottom: 0.2rem;
+        }
+        .video-item-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .delete-btn {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .delete-btn:hover {
+            background: #d32f2f;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--primary-red);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Website</a>
+        <div class="admin-header">
+            <h2>Admin <span>Control Center</span></h2>
+            <p>Manage the videos shown on your website's video section.</p>
+        </div>
+
+        <form id="videoAdminForm" class="video-form">
+            <div class="form-group">
+                <label for="vTitle">Video Title <span style="font-size: 0.7rem; font-weight: normal; color: var(--primary-red);">(Note: "Video 1, 2, 3..." will be added automatically)</span></label>
+                <input type="text" id="vTitle" placeholder="e.g. Delicious Recipes" required>
+            </div>
+            <div class="form-group">
+                <label for="vDesc">Description</label>
+                <textarea id="vDesc" rows="2" placeholder="Brief description of the video" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="vSrc">Video Source URL (mp4)</label>
+                <input type="text" id="vSrc" placeholder="assets/your-video.mp4 or external URL" required>
+            </div>
+            <div class="form-group">
+                <label for="vPoster">Poster/Thumbnail Image URL</label>
+                <input type="text" id="vPoster" placeholder="assets/thumbnail.jpg" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Video</button>
+        </form>
+
+        <div class="admin-header">
+            <h3>Current <span>Videos</span></h3>
+        </div>
+        <div id="adminVideoList" class="video-list-admin">
+            <!-- Video items will be listed here -->
+        </div>
+    </div>
+
+    <script>
+        const videoForm = document.getElementById('videoAdminForm');
+        const adminVideoList = document.getElementById('adminVideoList');
+        const submitBtn = videoForm.querySelector('button[type="submit"]');
+
+        const defaultVideos = [
+            {
+                title: "Process: Authentic Masala Making",
+                description: "A glimpse into our traditional sun-drying and hand-pounding process.",
+                src: "assets/your-video-1.mp4",
+                poster: "assets/video1-thumbnail.jpg"
+            },
+            {
+                title: "Recipe: Traditional Spicy Misal",
+                description: "Learn how to make the perfect street-style misal using our masala at home.",
+                src: "assets/your-video-2.mp4",
+                poster: "assets/video2-thumbnail.jpg"
+            }
+        ];
+
+        let videos = JSON.parse(localStorage.getItem('nishadVideos')) || defaultVideos;
+        let editIndex = -1;
+
+        const renderAdminList = () => {
+            adminVideoList.innerHTML = '';
+            videos.forEach((video, index) => {
+                const div = document.createElement('div');
+                div.className = 'video-item-admin';
+                div.innerHTML = `
+                    <div class="video-item-info">
+                        <h4>${video.title}</h4>
+                        <p>${video.description}</p>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn-edit" onclick="startEdit(${index})" style="background: #2196F3; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;"><i class="fas fa-edit"></i></button>
+                        <button class="delete-btn" onclick="deleteVideo(${index})"><i class="fas fa-trash"></i></button>
+                    </div>
+                `;
+                adminVideoList.appendChild(div);
+            });
+        };
+
+        const startEdit = (index) => {
+            editIndex = index;
+            const video = videos[index];
+            document.getElementById('vTitle').value = video.title;
+            document.getElementById('vDesc').value = video.description;
+            document.getElementById('vSrc').value = video.src;
+            document.getElementById('vPoster').value = video.poster;
+            
+            submitBtn.innerHTML = '<i class="fas fa-save"></i> Update Video';
+            submitBtn.style.background = '#2196F3';
+            
+            // Scroll to form
+            videoForm.scrollIntoView({ behavior: 'smooth' });
+        };
+
+        const deleteVideo = (index) => {
+            if (confirm('Are you sure you want to delete this video?')) {
+                videos.splice(index, 1);
+                saveVideos();
+                if (editIndex === index) resetForm();
+            }
+        };
+
+        const resetForm = () => {
+            editIndex = -1;
+            videoForm.reset();
+            submitBtn.innerHTML = 'Add Video';
+            submitBtn.style.background = '';
+        };
+
+        const saveVideos = () => {
+            localStorage.setItem('nishadVideos', JSON.stringify(videos));
+            renderAdminList();
+        };
+
+        videoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const videoData = {
+                title: document.getElementById('vTitle').value,
+                description: document.getElementById('vDesc').value,
+                src: document.getElementById('vSrc').value,
+                poster: document.getElementById('vPoster').value
+            };
+
+            if (editIndex === -1) {
+                videos.push(videoData);
+            } else {
+                videos[editIndex] = videoData;
+            }
+
+            saveVideos();
+            resetForm();
+        });
+
+        renderAdminList();
+    </script>
+</body>
+</html>
