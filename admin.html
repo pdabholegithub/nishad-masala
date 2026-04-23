@@ -87,7 +87,17 @@
         }
     </style>
 </head>
-<body>
+    <!-- Passcode Overlay -->
+    <div id="passcodeOverlay" style="position: fixed; inset: 0; background: var(--bg-warm); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1.5rem;">
+        <h2 style="font-family: var(--font-heading); color: var(--primary-red);">Admin Access</h2>
+        <p>Please enter your passcode to manage videos.</p>
+        <div style="display: flex; gap: 0.5rem;">
+            <input type="password" id="adminPassInput" placeholder="Passcode" style="padding: 0.8rem; border-radius: 10px; border: 2px solid var(--primary-red); font-family: var(--font-body);">
+            <button onclick="verifyPasscode()" class="btn btn-primary">Enter</button>
+        </div>
+        <p id="passError" style="color: #ff4d4d; font-size: 0.9rem; display: none;">Incorrect passcode. Please try again.</p>
+    </div>
+
     <div id="adminContent">
     <div class="admin-container">
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Website</a>
@@ -161,20 +171,25 @@
             });
         };
 
-        // Passcode Protection
-        const checkPasscode = () => {
-            const pass = prompt("Enter Admin Passcode to continue:");
+        // Passcode Protection (HTML Overlay)
+        const verifyPasscode = () => {
+            const pass = document.getElementById('adminPassInput').value;
+            const error = document.getElementById('passError');
+            
             if (pass === "Nishad@2026") {
+                document.getElementById('passcodeOverlay').style.display = "none";
                 document.getElementById('adminContent').style.display = "block";
                 renderAdminList();
             } else {
-                alert("Incorrect Passcode. Redirecting...");
-                window.location.href = "index.html";
+                error.style.display = "block";
+                document.getElementById('adminPassInput').value = '';
             }
         };
 
-        // Run immediately
-        checkPasscode();
+        // Support Enter key for the passcode
+        document.getElementById('adminPassInput')?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') verifyPasscode();
+        });
 
         const startEdit = (index) => {
             editIndex = index;
