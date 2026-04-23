@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nishad Enterprises - Kolhapuri Zanzanit Masala</title>
-    <meta name="description" content="Nishad Enterprises offers Kolhapuri Zanzanit Masala. 100% natural, homemade, no preservatives. Experience the true taste of Kolhapur.">
     
-    <!-- Google Fonts -->
+    <title>Nishad Enterprises | Authentic Kolhapuri Zanzanit Masala</title>
+    <meta name="description" content="Authentic handcrafted Kolhapuri spices. 100% natural, no preservatives. Experience the fiery taste of Kolhapur.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <nav id="navbar" class="navbar">
         <div class="nav-container">
-            <a href="#" class="brand-logo">Nishad <span>Enterprises</span><span style="display:block; font-size: 0.45em; letter-spacing: 1px; line-height: 1; font-weight: 500; font-family: var(--font-body); color: var(--text-muted); margin-top: 4px;">Kolhapuri Zanzanit Masala</span></a>
+            <a href="#home" class="brand-logo">
+                <span class="logo-main">Nishad Enterprises</span>
+                <span class="logo-sub">Kolhapuri Zanzanit Masala</span>
+            </a>
             
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -31,317 +30,116 @@
             </div>
             
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-links">Home</a></li>
-                <li><a href="#about" class="nav-links">About Us</a></li>
-                <li><a href="#products" class="nav-links">Products</a></li>
-                <li><a href="#benefits" class="nav-links">Benefits</a></li>
-                <li><a href="#videos" class="nav-links">Videos</a></li>
-                <li><a href="#reviews" class="nav-links">Reviews</a></li>
-                <li><a href="#contact" class="nav-btn">Contact Us</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#videos" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="btn btn-primary">Order Now</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>अस्सल कोल्हापूरी <br><span class="highlight">झणझणीत मसाला</span></h1>
-            <p>Bringing the fiery and flavorful essence of traditional Kolhapur straight to your kitchen. Elevate your everyday meals with our signature masala.</p>
-            <a href="https://wa.me/917020908516?text=Hello%21%20I%20am%20interested%20in%20your%20Kolhapuri%20Zanzanit%20Masala." target="_blank" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
-        </div>
-        <div class="hero-image-wrapper">
-            <div class="hero-image-circle">
-                <img src="assets/masala.png" alt="Traditional Kolhapuri Spicy Red Masala in a Wooden Bowl" class="hero-img">
-            </div>
-            <div class="spice-glow"></div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="about">
-        <div class="section-container">
-            <div class="about-image">
-                <div class="pattern-bg"></div>
-            </div>
-            <div class="about-text">
-                <h2 class="section-title">Rooted in <span>Kolhapur</span></h2>
-                <div class="divider"></div>
-                <p>Welcome to <strong>Nishad Enterprises</strong>, a passionate small business hailing from the vibrant heart of Kolhapur. For generations, Kolhapuri food has been synonymous with bold flavors, heat, and an unforgettable aroma.</p>
-                <p>Our journey began with a simple mission: to preserve and share the authentic, homemade taste of real Kolhapuri masala with the world. We meticulously hand-select our spices to ensure every spoonful carries the rich heritage and fiery soul of our hometown.</p>
-                <div class="about-features">
-                    <div class="feature">
-                        <i class="fas fa-pepper-hot"></i>
-                        <span>Traditional Recipe</span>
+    <main>
+        <section id="home" class="hero">
+            <div class="section-container hero-grid">
+                <div class="hero-text">
+                    <h1>अस्सल कोल्हापूरी <br><span style="color: var(--primary-red);">झणझणीत मसाला</span></h1>
+                    <p>Bringing the fiery heart and authentic aroma of Kolhapur straight to your kitchen. Handcrafted with passion, traditional to the core.</p>
+                    <div class="hero-btns">
+                        <a href="https://wa.me/917020908516" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp Order</a>
+                        <a href="#products" class="btn btn-secondary">Our Products</a>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-mortar-pestle"></i>
-                        <span>Handcrafted</span>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-circle">
+                        <img src="assets/masala.png" alt="Kolhapuri Masala" class="hero-img">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products">
-        <div class="section-container column">
-            <div class="section-header">
-                <h2>Our Premium <span>Masalas</span></h2>
-                <div class="divider center"></div>
-                <p>Perfectly blended spices to turn any dish into a culinary masterpiece.</p>
+        <section id="about" class="about">
+            <div class="section-container hero-grid">
+                <div class="hero-visual">
+                    <img src="assets/real_products1.jpg" alt="Product Background" style="border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">Rooted in <span>Kolhapur</span></h2>
+                    <div class="divider"></div>
+                    <p>Welcome to Nishad Enterprises. We preserve the authentic, homemade taste of real Kolhapuri masala. Every spoonful carries the rich heritage and fiery soul of our hometown.</p>
+                </div>
             </div>
-            
-            <div class="product-cards">
-                <!-- Product Card 1 -->
-                <div class="card">
-                    <div class="card-img-wrapper">
-                        <img src="assets/real_products.jpg" alt="Kolhapuri Spicy Masala">
-                        <span class="badge">Bestseller</span>
-                    </div>
-                    <div class="card-info">
-                        <h3>Spicy Kolhapuri Masala</h3>
-                        <p class="description">The perfect everyday bold spice blend for curries, misal, and non-veg delicacies. Rich in color and fiery taste.</p>
-                        <div class="price-row">
-                            <span class="price">₹ 299</span>
-                            <span class="weight">/ 500g</span>
+        </section>
+
+        <section id="products" class="products">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Our Premium <span>Blends</span></h2>
+                    <div class="divider center"></div>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card">
+                        <div class="product-img-box">
+                            <img src="assets/real_products.jpg" alt="Kolhapuri Masala">
                         </div>
-                        <button onclick="window.open('https://wa.me/917020908516?text=Hello!%20I%20would%20like%20to%20order%20the%20Spicy%20Kolhapuri%20Masala%20(500g%20for%20%E2%82%B9299).', '_blank')" class="btn btn-secondary btn-full"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button>
-                    </div>
-                </div>
-                
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section id="benefits" class="benefits">
-        <div class="benefits-overlay"></div>
-        <div class="section-container column relative-z">
-            <div class="section-header light">
-                <h2>Why Choose <span>Nishad Enterprise's Masala?</span></h2>
-                <div class="divider center light-divider"></div>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="icon-circle">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h4>100% Natural</h4>
-                    <p>No artificial colors or chemicals. Just pure, sun-dried goodness.</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="icon-circle">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h4>Homemade Quality</h4>
-                    <p>Made in small batches with love, ensuring unparalleled freshness.</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="icon-circle">
-                        <i class="fas fa-ban"></i>
-                    </div>
-                    <h4>No Preservatives</h4>
-                    <p>Long-lasting natural flavors without the use of chemical preservatives.</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="icon-circle">
-                        <i class="fas fa-fire-alt"></i>
-                    </div>
-                    <h4>Authentic Heat</h4>
-                    <p>Sourced from local Kolhapur markets for genuine spice levels.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="videos" class="videos">
-        <div class="section-container column">
-            <div class="section-header">
-                <h2>Explore <span>Nishad's Kitchen</span></h2>
-                <div class="divider center"></div>
-                <p>From traditional spice making to delicious recipes, watch our latest video updates.</p>
-            </div>
-            
-            <div class="video-grid" id="videoGrid">
-                <!-- Videos will be loaded dynamically here -->
-            </div>
-
-            <!-- Admin Provision Trigger (Hidden by default, can be toggled) -->
-            <div id="admin-provision" style="display: none; margin-top: 3rem; text-align: center;">
-                <button id="addVideoBtn" class="btn btn-secondary"><i class="fas fa-plus"></i> Add New Video</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section id="reviews" class="reviews">
-        <div class="section-container column">
-            <div class="section-header">
-                <h2>Customer <span>Testimonials</span></h2>
-                <div class="divider center"></div>
-                <p>Don't just take our word for it. Hear from our spice lovers!</p>
-            </div>
-            
-            <div class="reviews-slider-container">
-                <button class="slider-btn prev-btn" id="prevReview"><i class="fas fa-chevron-left"></i></button>
-                <div class="reviews-wrapper" id="reviewsWrapper">
-                    <div class="review-box">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"Absolutely amazing! The exact traditional Kolhapuri flavor I have been searching for. Highly recommended for non-veg curries."</p>
-                        <div class="reviewer">
-                            <div class="avatar">P</div>
-                            <div>
-                                <h4>Poonam D.</h4>
-                                <span>Mumbai</span>
+                        <div class="product-info">
+                            <h3>Spicy Kolhapuri Masala</h3>
+                            <p>Perfect for curries, misal, and non-veg delicacies. Rich color and fiery taste.</p>
+                            <div class="product-footer">
+                                <span class="product-price">₹299 <small>/ 500g</small></span>
+                                <a href="https://wa.me/917020908516" class="btn btn-primary btn-sm">Order</a>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="review-box">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="review-text">"I made misal using Nishad's masala, and everyone loved it. The color is beautiful and it has no artificial aftertaste."</p>
-                        <div class="reviewer">
-                            <div class="avatar">D</div>
-                            <div>
-                                <h4>Dheeren M.</h4>
-                                <span>Pune</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review-box">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"The Kolhapuri masala is incredibly authentic and fresh. It reminds me of the spices we used back home!"</p>
-                        <div class="reviewer">
-                            <div class="avatar">J</div>
-                            <div>
-                                <h4>Jaywant J.</h4>
-                                <span>Kolhapur</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review-box">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="review-text">"Fantastic blend of spices. Gives perfect color and heat to non-veg dishes without being overwhelmingly spicy."</p>
-                        <div class="reviewer">
-                            <div class="avatar">O</div>
-                            <div>
-                                <h4>Omkar K.</h4>
-                                <span>Solapur</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review-box">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"This has become a staple in my kitchen. The aroma alone is enough to make anyone hungry. Highly recommend!"</p>
-                        <div class="reviewer">
-                            <div class="avatar">A</div>
-                            <div>
-                                <h4>Ayush M.</h4>
-                                <span>Mumbai</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review-box">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"Best Kolhapuri masala I've ever bought online. It has the perfect kick and zero artificial color."</p>
-                        <div class="reviewer">
-                            <div class="avatar">P</div>
-                            <div>
-                                <h4>Pushkar B.</h4>
-                                <span>Nashik</span>
-                            </div>
-                        </div>
-                    </div>
+                    </article>
                 </div>
-                <button class="slider-btn next-btn" id="nextReview"><i class="fas fa-chevron-right"></i></button>
             </div>
-            <div class="slider-dots" id="sliderDots"></div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="section-container">
-            <div class="contact-info">
-                <h2>Get In <span>Touch</span></h2>
-                <div class="divider"></div>
-                <p>Have questions about bulk orders or our spices? We'd love to hear from you!</p>
-                
-                <ul class="contact-list">
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Location</strong>
-                            <span>Main Road, Aadmapur, Kolhapur, Maharashtra 416209</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <strong>Phone</strong>
-                            <span>+91 70209 08516</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>Email</strong>
-                            <span>neadmapur@gmail.com</span>
-                        </div>
-                    </li>
-                </ul>
+        <section id="videos" class="videos">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Our <span>Kitchen</span></h2>
+                    <div class="divider center"></div>
+                </div>
+                <div id="videoGrid" class="product-grid">
+                    <!-- Dynamic Videos -->
+                </div>
+                <div id="admin-provision" style="display: none; margin-top: 2rem; text-align: center;">
+                    <a href="admin.html" class="btn btn-secondary">Admin Login</a>
+                </div>
             </div>
-            
-            <div class="contact-form">
-                <form action="#" method="POST" id="contactForm">
-                    <div class="input-group">
-                        <input type="text" id="name" required placeholder="Your Name">
-                    </div>
-                    <div class="input-group">
-                        <input type="email" id="email" required placeholder="Your Email">
-                    </div>
-                    <div class="input-group">
-                        <textarea id="message" rows="4" required placeholder="Your Message"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <section id="contact" class="contact">
+            <div class="section-container hero-grid">
+                <div class="contact-text">
+                    <h2>Get In <span>Touch</span></h2>
+                    <div class="divider"></div>
+                    <p>Main Road, Aadmapur, Kolhapur<br>+91 70209 08516</p>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <input type="text" id="name" placeholder="Name" required style="padding: 0.8rem; border-radius: 8px; border: 1px solid #ddd;">
+                        <textarea id="message" placeholder="Message" required style="padding: 0.8rem; border-radius: 8px; border: 1px solid #ddd;"></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>Nishad <span>Enterprises</span></h3>
-                <p style="margin-bottom: 0.5rem; color: var(--accent-yellow); font-weight: 500;">Kolhapuri Zanzanit Masala</p>
-                <p>अस्सल कोल्हापूरी झणझणीत मसाला! Handcrafted with passion, traditional to the core.</p>
+        <div class="footer-content">
+            <div>
+                <h3>Nishad Enterprises</h3>
+                <p>Authentic Kolhapuri Zanzanit Masala</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="currentYear"></span> Nishad Enterprises. All Rights Reserved.</p>
+            <div>
+                <p>&copy; <span id="currentYear"></span> All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Custom Script -->
     <script src="script.js"></script>
 </body>
 </html>
